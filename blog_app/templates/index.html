@@ -1,0 +1,36 @@
+
+{% extends 'base.html'%}
+{% load static %}
+  
+{% block title %}
+    <title> blog </title>
+{% endblock title %}
+  
+{% block content %}
+
+  <div class = "text-center" >
+    <table class = "table">
+      <thead>
+        <tr>
+          <th scope = "col">Title</th>
+          <th scope = "col">Author</th>
+          <th scope = "col"></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% for  post in object_list %}
+          <tr>
+            <th scope = "row" > {{post.title}} </th>
+            <td> {{post.author}} </td>
+            <td><a href = "{% url 'blogs' post.pk %}" class= "btn btn-primary">
+              Read
+            </a>
+        {% endfor %}
+        </td>
+        </tr>
+      </tbody>
+  </table>
+  </div>
+
+{% endblock content %}
